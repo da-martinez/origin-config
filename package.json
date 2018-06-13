@@ -1,0 +1,15 @@
+{
+  "name": "origin-video-block-config",
+  "version": "0.0.1",
+  "description": "Installer/Configurator for Origin Video Block",
+  "main": "origin_video_block_preinstall.py",
+  "scripts": {
+    "test": "echo 'No Tests'",
+    "postinstall": "python origin_video_block_preinstall.py"
+  },
+  "dependencies": {
+    "mod-pbxproj": "git@github.com:noizetoys/mod-pbxproj.git"
+  },
+  "author": "Turner Origin",
+  "license": "MIT"
+}
