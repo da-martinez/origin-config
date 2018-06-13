@@ -8,7 +8,7 @@
     "postinstall": "python origin_video_block_preinstall.py"
   },
   "dependencies": {
-    "mod-pbxproj": "git@github.com:noizetoys/mod-pbxproj.git"
+    "mod-pbxproj": "https://github.com/noizetoys/mod-pbxproj.git"
   },
   "author": "Turner Origin",
   "license": "MIT"
