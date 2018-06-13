@@ -19,7 +19,7 @@ print("\nAdding Dependencies to React Native Project")
 
 dependencies = data["dependencies"]
 dependencies["origin-react-native-video-player"] = "git+ssh://git@github.com/turnercode/origin-video-block.git"
-dependencies["mod-pbxproj"] = "git@github.com:noizetoys/mod-pbxproj.git"
+dependencies["mod-pbxproj"] = "https://github.com/noizetoys/mod-pbxproj.git"
 data["dependencies"] = dependencies
 
 
