@@ -35,7 +35,9 @@ project_path = os.getcwd()
 path_array = project_path.split('/')
 # print("Path name = ", path_array)
 project_name = path_array[-1]
+print("\n\n------------------------------------------")
 print("Project Name = %s" % project_name)
+print("------------------------------------------")
 dummy_project_path = '/ios/project_name.xcodeproj/project.pbxproj'
 path_to_xcode_project = dummy_project_path.replace("project_name", project_name)
 # print("Path to Xcode Project = %s" % path_to_xcode_project)
@@ -55,12 +57,14 @@ if os.path.exists(symlink_path):
 
 
 # Create Symlink to youiengine.
-engine_source = raw_input("\n\nWhere is the you.i engine located?")
-print("\n\nDrag-and-Drop the Folder containing the engine here, then press 'Enter' ->  ")
+input_string = '\n\nWhere is the you.i engine located?' \
+'\n----------------------------------\n' \
+'\nDrag-and-Drop the folder containing the you.i engine here, then press "Enter" ->  '
+ 
+# engine_source = raw_input("\n\nWhere is the you.i engine located?\n\nDrag-and-Drop the Folder containing the engine here, then press 'Enter' ->  ")
+engine_source = raw_input(input_string)
 os.symlink(engine_source, symlink_path)
-print("--------------------------------------------------------------------------")
-print("youiengine symlink created to '%s'" % symlink_path)
-print("--------------------------------------------------------------------------")
+print("\nyouiengine symlink created to '%s'" % symlink_path)
 
 
 # Create project to manipulate
@@ -84,7 +88,8 @@ full_embedded_path = project_path + embedded_framework_path
 ##########################
 turner_frameworks = ['AccessEnabler.framework', 'TurnerAdKit.framework', 'TurnerPlayerKit.framework']
 
-print("\nAdding Turner Frameworks...")
+print("\n\nAdding Turner Frameworks:")
+print("-------------------------")
 
 for framework in turner_frameworks:
     print("Adding:  %s" % framework)
@@ -132,7 +137,9 @@ blah = project.add_file(auth_services, parent=frameworks, target_name=project_na
 ##########################
 app_factory_files = ['AppFactory.cpp', 'AppFactory.h']
 
-print("\nCopying files...")
+print("\n\nCopying files:")
+print("--------------")
+
 for file_to_copy in app_factory_files:
     print("Copying:  %s" % file_to_copy)
     file_path = full_embedded_path.replace('FILE_NAME', file_to_copy)
@@ -146,12 +153,12 @@ for file_to_copy in app_factory_files:
 # 'dummy.swift' & '<Project_Name>_Bridging_Header.h
 # Empty files created for Swift Briding purposes
 ##########################
-print("\nCreating and Adding files to Xcode...")
-print("-------------------------------------")
+print("\n\nCreating and Adding files to Xcode:")
+print("-----------------------------------")
 dummy_swift_file_path = ios_project_path + 'dummy.swift'
 bridging_header_file = project_name + '_Bridging_Header.h'
 bridging_header_path = ios_project_path + bridging_header_file
-print("\nAdding file:  dummy.swift")
+print("Adding file:  dummy.swift")
 print("Adding file:  %s" % bridging_header_file)
 # Create swift file
 swift_file = open(dummy_swift_file_path, 'w')
@@ -186,8 +193,8 @@ apple_frameworks = [
 
 system_frameworks_path = '/System/Library/Frameworks/'
 
-print("\nAdding Apple Frameworks...")
-print("--------------------------")
+print("\n\nAdding Apple Frameworks:")
+print("------------------------")
 
 for framework in apple_frameworks: 
     print("Adding:  %s" % framework)
@@ -232,8 +239,8 @@ youi_frameworks = [
 ##########################
 youi_library_path = project_path + '/youiengine/libs/ios/Debug/' 
 
-print("\nAdding you.i frameworks")
-print("-----------------------")
+print("\n\nAdding you.i frameworks:")
+print("------------------------")
 
 for framework in youi_frameworks: 
     print("Adding:  %s" % framework)
@@ -250,9 +257,9 @@ youi_base_path = '${PROJECT_DIR}/../youiengine/include/'
 video_player_path = '${SRCROOT}/../node_modules/origin-react-native-video-player/ios'
 youi_sdks = youi_base_path + 'sdk'
 youi_thirdparty_sdks = youi_base_path + 'thirdparty/ios'
-print("\nUpdating Header Search Paths with:")
+print("\n\nUpdating Header Search Paths with:")
 print("----------------------------------")
-print("\n%s\n%s\n%s" % (video_player_path, youi_sdks, youi_thirdparty_sdks))
+print("%s\n%s\n%s" % (video_player_path, youi_sdks, youi_thirdparty_sdks))
 project.add_header_search_paths([video_player_path, youi_sdks, youi_thirdparty_sdks], recursive=True, target_name=project_name)
 
 
@@ -260,7 +267,8 @@ project.add_header_search_paths([video_player_path, youi_sdks, youi_thirdparty_s
 # Change Framework Search paths
 ##########################
 project.add_framework_search_paths('${PROJECT_DIR}', recursive=True)
-print("\nUpdating Framework Search Paths with:")
+print("\n\nUpdating Framework Search Paths with:")
+print("-------------------------------------")
 print("${PROJECT_DIR}\n\n") 
 
 
