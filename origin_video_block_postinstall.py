@@ -61,7 +61,6 @@ input_string = '\n\nWhere is the you.i engine located?' \
 '\n----------------------------------\n' \
 '\nDrag-and-Drop the folder containing the you.i engine here, then press "Enter" ->  '
  
-# engine_source = raw_input("\n\nWhere is the you.i engine located?\n\nDrag-and-Drop the Folder containing the engine here, then press 'Enter' ->  ")
 engine_source = raw_input(input_string)
 os.symlink(engine_source, symlink_path)
 print("\nyouiengine symlink created to '%s'" % symlink_path)
@@ -69,6 +68,7 @@ print("\nyouiengine symlink created to '%s'" % symlink_path)
 
 # Create project to manipulate
 project = XcodeProject.load(full_path)
+
 # Back up the file just in case
 project_back_up = project.backup()
 print("\nOriginal Project backed up to '%s'" % project_back_up)
@@ -160,6 +160,7 @@ bridging_header_file = project_name + '_Bridging_Header.h'
 bridging_header_path = ios_project_path + bridging_header_file
 print("Adding file:  dummy.swift")
 print("Adding file:  %s" % bridging_header_file)
+
 # Create swift file
 swift_file = open(dummy_swift_file_path, 'w')
 swift_file.write("//\n//  dummy.swift\n//  %s\n//\n\nimport Foundation" % project_name)
