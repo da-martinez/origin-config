@@ -1,9 +1,9 @@
 # origin-config
 
 1. Create a new React Native project
-  '**react-native init <App_Name>**'
+  '**react-native init <*App_Name*>**'
 
-2. '**cd <App_Name>**'
+2. '**cd <*App_Name*>**'
 
 3. Install this module
   '**npm install https://github.com/noizetoys/origin-config.git**'
