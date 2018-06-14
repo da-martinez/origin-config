@@ -18,13 +18,14 @@ with open(package_file) as json_file:
 print("\nAdding Dependencies to React Native Project")
 
 dependencies = data["dependencies"]
-# dependencies["origin-react-native-video-player"] = "https://github.com/turnercode/origin-video-block.git"
-dependencies["origin-react-native-video-player"] = "git@github.com:turnercode/origin-video-block.git"
+dependencies["origin-react-native-video-player"] = "https://github.com/turnercode/origin-video-block.git"
+# Using the SSH URL seems to cause problems with some users...
+# dependencies["origin-react-native-video-player"] = "git@github.com:turnercode/origin-video-block.git"
 dependencies["mod-pbxproj"] = "https://github.com/noizetoys/mod-pbxproj.git"
 data["dependencies"] = dependencies
 
 
-##########################
+#########################
 # Add Pre and Post Install Scripts
 ##########################
 print("\nAdding Pre and Post Install scripts")
