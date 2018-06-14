@@ -51,7 +51,7 @@ ios_project_path = project_path + '/ios/'
 # create symlink to 'youiengine' folder
 ##########################
 symlink_path = project_path + '/youiengine'
-# print(symlink_path)
+print(symlink_path)
 if os.path.exists(symlink_path):
     os.unlink(symlink_path)
 
@@ -63,7 +63,7 @@ input_string = '\n\nWhere is the you.i engine located?' \
  
 engine_source = raw_input(input_string)
 os.symlink(engine_source, symlink_path)
-print("\nyouiengine symlink created to '%s'" % symlink_path)
+print("\nyouiengine symlink created to '%s'" % engine_source)
 
 
 # Create project to manipulate
@@ -255,7 +255,7 @@ for framework in youi_frameworks:
 # Change Header Search paths
 ##########################
 youi_base_path = '${PROJECT_DIR}/../youiengine/include/'
-video_player_path = '${SRCROOT}/../node_modules/origin-react-native-video-player/ios'
+video_player_path = '${SRCROOT}/../node_modules/origin-react-native-video-player/ios/'
 youi_sdks = youi_base_path + 'sdk'
 youi_thirdparty_sdks = youi_base_path + 'thirdparty/ios'
 print("\n\nUpdating Header Search Paths with:")
