@@ -248,7 +248,7 @@ for framework in youi_frameworks:
     print("Adding:  %s" % framework)
     youi_framework_path = youi_library_path + framework
     frameworks = project.get_or_create_group('Frameworks')
-    file_options = FileOptions(embed_framework=False, weak=True)
+    file_options = FileOptions(embed_framework=False, weak=False)
     blah = project.add_file(youi_framework_path, parent=frameworks, tree='SDKROOT', target_name=project_name, file_options=file_options)
 
 
@@ -256,7 +256,7 @@ for framework in youi_frameworks:
 # Change Header Search paths
 ##########################
 youi_base_path = '${PROJECT_DIR}/../youiengine/include/'
-video_player_path = '${SRCROOT}/../node_modules/origin-react-native-video-player/ios'
+video_player_path = '${SRCROOT}/../node_modules/origin-react-native-video-player/ios/'
 youi_sdks = youi_base_path + 'sdk'
 youi_thirdparty_sdks = youi_base_path + 'thirdparty/ios'
 print("\n\nUpdating Header Search Paths with:")
@@ -278,3 +278,6 @@ print("${PROJECT_DIR}\n\n")
 # Required
 ##########################
 project.save()
+
+#Warning: using 'ALWAYS_SEARCH_USER_PATHS = YES' while building targets which define modules ('DEFINES_MODULE = YES') may fail. Please migrate to using 'ALWAYS_SEARCH_USER_PATHS = NO'.
+
