@@ -18,8 +18,8 @@ with open(package_file) as json_file:
 print("\nAdding Dependencies to React Native Project")
 
 dependencies = data["dependencies"]
-# dependencies["origin-react-native-video-player"] = "https://github.com/turnercode/origin-video-block.git"
-dependencies["origin-react-native-video-player"] = "git@github.com:turnercode/origin-video-block.git"
+dependencies["origin-react-native-video-player"] = "https://github.com/turnercode/origin-video-block.git"
+# dependencies["origin-react-native-video-player"] = "git@github.com:turnercode/origin-video-block.git"
 dependencies["mod-pbxproj"] = "https://github.com/noizetoys/mod-pbxproj.git"
 data["dependencies"] = dependencies
 
