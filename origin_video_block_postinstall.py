@@ -62,7 +62,8 @@ input_string = '\n\nWhere is the you.i engine located?' \
 '\nDrag-and-Drop the folder containing the you.i engine here, then press "Enter" ->  '
  
 engine_source = raw_input(input_string)
-os.symlink(engine_source, symlink_path)
+symlink_command = 'ln -s ' + engine_source + ' youiengine'
+os.system(symlink_command)
 print("\nyouiengine symlink created to '%s'" % engine_source)
 
 
@@ -255,7 +256,7 @@ for framework in youi_frameworks:
 # Change Header Search paths
 ##########################
 youi_base_path = '${PROJECT_DIR}/../youiengine/include/'
-video_player_path = '${SRCROOT}/../node_modules/origin-react-native-video-player/ios/'
+video_player_path = '${SRCROOT}/../node_modules/origin-react-native-video-player/ios'
 youi_sdks = youi_base_path + 'sdk'
 youi_thirdparty_sdks = youi_base_path + 'thirdparty/ios'
 print("\n\nUpdating Header Search Paths with:")
