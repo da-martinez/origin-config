@@ -2,15 +2,15 @@
 
 ## Prerequisites:
 * React Native (Duh):
-  * `https://www.npmjs.com/package/react-native`
-  * `https://facebook.github.io/react-native/docs/getting-started.html`
+  * https://www.npmjs.com/package/react-native
+  * https://facebook.github.io/react-native/docs/getting-started.html
 * React Native CLI (Double Duh)
-  * `https://www.npmjs.com/package/react-native-cli`
+  * https://www.npmjs.com/package/react-native-cli
 * npm
-  * `https://www.npmjs.com/get-npm`
+  * https://www.npmjs.com/get-npm
 * Python 2.7.xx
   * *Should already be installed on you machine...*
-  * `https://www.python.org/downloads/`
+  * https://www.python.org/downloads/
 * you.i engine 4.7.xx (4.8 compatibilty forthcoming)
   * Talk to you Tech Lead
 
