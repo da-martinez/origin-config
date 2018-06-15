@@ -3,11 +3,14 @@
   "version": "0.0.1",
   "description": "Installer/Configurator for Origin Video Block",
   "main": "origin_video_block_preinstall.py",
+  "bin": {
+    "update_ios_project": "./update_ios_project.py"
+  },
   "scripts": {
-    "test": "echo 'No Tests'",
-    "postinstall": "python origin_video_block_preinstall.py"
+    "test": "echo 'No Tests'"
   },
   "dependencies": {
+    "origin-react-native-video-player": "https://github.com/turnercode/origin-video-block.git",
     "mod-pbxproj": "https://github.com/noizetoys/mod-pbxproj.git"
   },
   "author": "Turner Origin",
