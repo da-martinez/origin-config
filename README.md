@@ -17,13 +17,11 @@
 
 3. Install this module (origin-config)
  * **`npm install https://github.com/noizetoys/origin-config.git`**
-  
-  * ***Note:  You will need to enter your password.  The Python library used to edit the Xcode project needs access to install its dependencies***
+ * ***Note:  You will need to enter your password.  The Python library used to edit the Xcode project needs access to install its dependencies***
   
 4. Install the new project dependencies
 * **`npm install`**
-
-  * ***Note:  You will need to drag-and-drop the folder containing the you.i engine on the Terminal window and press 'Enter'***
+* ***Note:  You will need to drag-and-drop the folder containing the you.i engine on the Terminal window and press 'Enter'***
   
 5. Build the iOS project
 * **`react-native run-ios`** 
