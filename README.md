@@ -2,6 +2,7 @@
 
 ## Prerequisites:
 * Python 2.7.xx
+* you.i engine 4.7.xx (4.8 compatibilty forthcoming)
 
 
 
