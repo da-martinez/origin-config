@@ -27,7 +27,7 @@
 * **`cd <App_Name>`**
 
 3. Install this module (origin-config)
- * **`npm install https://github.com/noizetoys/origin-config.git`**
+ * **`npm install noizetoys/origin-config`**
  * ***Note:  You will need to enter your password.  The Python library used to edit the Xcode project needs access to install its dependencies***
   
 4. Run the python script that moves everything around for you (magically)
