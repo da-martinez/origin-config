@@ -289,9 +289,26 @@ print("${PROJECT_DIR}\n\n")
 
 project.add_library_search_paths('${PROJECT_DIR}/../youiengine/libs/ios', recursive=True)
 
+print("-------------------------------------")
+print "\nAdd RCTVideo project to Library"
+print("-------------------------------------")
+rct_video_file = 'origin-react-native-video-player/ios/RCTVideo.xcodeproj'
+rct_video_path = os.path.join(root_path, rct_video_file)
+print "rct_video_path = %s" % rct_video_path
+libraries = project.get_or_create_group('Libraries')
+blah = project.add_project(rct_video_path, parent=libraries, tree='SDKROOT', target_name=project_name)
+
+
+##########################
+# Set Swift Language Version Flag to 4.1
+##########################
+
+
+
+
+
 ##########################
 # Required
 ##########################
 project.save()
 
-#Warning: using 'ALWAYS_SEARCH_USER_PATHS = YES' while building targets which define modules ('DEFINES_MODULE = YES') may fail. Please migrate to using 'ALWAYS_SEARCH_USER_PATHS = NO'.
