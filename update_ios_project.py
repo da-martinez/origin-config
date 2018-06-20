@@ -12,7 +12,7 @@ def get_module_path(module_path):
     except subprocess.CalledProcessError as e:
         raise RuntimeError("command '{}' return with error (code {}): {}".format(e.cmd, e.returncode, e.output))
 
-    return module_path
+    return module_path.split('\n')[0]
 
 
 def create_symlink(project_path):
@@ -186,7 +186,6 @@ apple_frameworks = [
     'EventKit.framework',
     'GLKit.framework',
     'MediaPlayer.framework',
-    'MessageUI.framework',
     'WebKit.framework'
 ]
 
@@ -205,12 +204,17 @@ for framework in apple_frameworks:
 ##########################
 # Apple Framework located in different Directory
 ##########################
-ad_support_framework_path = '/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/AdSupport.framework'
-print("Adding:  AdSupport.framework")
-frameworks = project.get_or_create_group('Frameworks')
-file_options = FileOptions(embed_framework=False, weak=True)
-blah = project.add_file(ad_support_framework_path, parent=frameworks, tree='SDKROOT', target_name=project_name, file_options=file_options)
+other_frameworks = ['AdSupport.framework',
+                    'MessageUI.framework']
 
+other_framework_path = '/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/'
+
+for other_framework in other_frameworks:
+    print "Adding: %s" % framework
+    frameworks = project.get_or_create_group('Frameworks')
+    framework_path = os.path.join(other_framework_path, other_framework)
+    file_options = FileOptions(embed_framework=False, weak=True)
+    blah = project.add_file(framework_path, parent=frameworks, tree='SDKROOT', target_name=project_name, file_options=file_options)
 
 ##########################
 # Add you.i frameworks
@@ -249,6 +253,20 @@ for framework in youi_frameworks:
     file_options = FileOptions(embed_framework=False, weak=False)
     blah = project.add_file(youi_framework_path, parent=frameworks, tree='SDKROOT', target_name=project_name, file_options=file_options)
 
+
+
+other_libraries = ['libxml2.2.tbd']
+other_library_path = '/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/lib'
+
+for lib in other_libraries:
+    print("Adding:  %s" % lib)
+    lib_path = os.path.join(other_library_path, lib)
+    print "lib_path = %s" % lib_path
+    frameworks = project.get_or_create_group('Frameworks')
+    file_options = FileOptions(embed_framework=False, weak=False)
+    blah = project.add_file(lib_path, parent=frameworks, tree='SDKROOT', target_name=project_name, file_options=file_options)
+
+
 ##########################
 # Change Header Search paths
 ##########################
@@ -269,6 +287,7 @@ print("\n\nUpdating Framework Search Paths with:")
 print("-------------------------------------")
 print("${PROJECT_DIR}\n\n")
 
+project.add_library_search_paths('${PROJECT_DIR}/../youiengine/libs/ios', recursive=True)
 
 ##########################
 # Required
