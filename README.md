@@ -36,9 +36,16 @@
 
 5. Have React Native resolve any symlinks, etc.
 * **`react-native link`**
+
+6. Open the project in Xcode
+* **`open ../<App_Name>.xcodeproj`
+
+7. Change the Swift Language Version
+* Navigate to `Build Settings`
+* Under `Swift Compiler - Language`, Select `Swift 4.1` under the Project icon
   
-6. Build the iOS project
-* **`react-native run-ios`** 
+8. Build the iOS project
+* **Press the `Run` button in Xcode
 
 
 ## Troubleshooting
