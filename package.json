@@ -10,8 +10,9 @@
     "test": "echo 'No Tests'"
   },
   "dependencies": {
-    "origin-react-native-video-player": "https://github.com/turnercode/origin-video-block.git",
-    "mod-pbxproj": "https://github.com/noizetoys/mod-pbxproj.git"
+    "origin-react-native-video-player": "git@github.com:turnercode/origin-video-block.git",
+    "mod-pbxproj": "https://github.com/noizetoys/mod-pbxproj.git",
+    "keymirror": "0.1.1"
   },
   "author": "Turner Origin",
   "license": "MIT"
